@@ -1,0 +1,191 @@
+/* ==================== */
+/* # General Settings # */
+/* ==================== */
+
+:root {
+  /* ## Primary Colors ## */
+
+  --color-green-500: hsl(158, 36%, 37%);
+  --color-green-700: hsl(158, 42%, 18%);
+
+  /* ## Neutral Colors ## */
+
+  --color-black: hsl(212, 21%, 14%);
+  --color-cream: hsl(30, 38%, 92%);
+  --color-grey: hsl(228, 12%, 48%);
+  --color-white: hsl(0, 0%, 100%);
+}
+
+body {
+  /* Box model */
+  display: grid;
+  min-height: 100vh;
+  padding: 1em;
+  place-items: center;
+
+  /* Visual */
+  background-color: var(--color-cream);
+  color: var(--color-grey);
+}
+
+/* ================ */
+/* # Simple Reset # */
+/* ================ */
+
+* {
+  /* Box model */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================== */
+/* # Card Component # */
+/* ================== */
+
+.card {
+  /* Box model */
+  padding-inline: 1.25em;
+  max-width: 45em;
+
+  /* Typography */
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+
+  /* Visual */
+  background-color: var(--color-white);
+  border-radius: 0.625em;
+}
+
+.card__content {
+  /* Box model */
+  display: grid;
+  gap: 0.85em;
+  padding-block: 1.25em;
+}
+
+.card__image {
+  /* Box model */
+  display: block;
+  margin-inline-start: -1.25em;
+  max-width: calc(100% + (1.25em * 2));
+
+  /* Visual */
+  border-start-end-radius: 0.625em;
+  border-start-start-radius: 0.625em;
+}
+
+.card__category {
+  /* Typography */
+  font-size: clamp(0.75rem, 0.188vw + 0.706rem, 0.875rem);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+}
+
+.card__title {
+  /* Typography */
+  font-size: clamp(2rem, 0.751vw + 1.824rem, 2.5rem);
+  font-family: "Fraunces", serif;
+  line-height: 1;
+
+  /* Visual */
+  color: var(--color-black);
+}
+
+.card__description {
+  /* Typography */
+  font-size: clamp(0.875rem, 0.338vw + 0.796rem, 1.1rem);
+  line-height: 1.5;
+}
+
+.card__price {
+  /* Box model */
+  align-items: center;
+  display: flex;
+  gap: 1em;
+}
+
+.card__price > :first-child {
+  /* Typography */
+  font-family: "Fraunces", serif;
+  font-size: 2rem;
+  font-weight: 700;
+
+  /* Visual */
+  color: var(--color-green-500);
+}
+
+.card__price > :last-child {
+  /* Typography */
+  font-size: clamp(0.875rem, 0.188vw + 0.831rem, 1rem);
+  text-decoration: line-through;
+}
+
+.card__cta-button {
+  /* Box model */
+  align-items: center;
+  display: flex;
+  gap: 0.625em;
+  justify-content: center;
+  padding: 1em;
+
+  /* Typography */
+  font-size: clamp(0.875rem, 0.188vw + 0.831rem, 1rem);
+  font-weight: 700;
+
+  /* Visual */
+  background-color: var(--color-green-500);
+  border: none;
+  border-radius: 0.675em;
+  color: var(--color-white);
+
+  /* Misc */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.card__cta-button:focus {
+  /* Visual */
+  background-color: var(--color-green-700);
+  outline: 0.125rem dashed var(--color-green-700);
+  outline-offset: 0.125rem;
+}
+
+.card__cta-button:hover {
+  /* Visual */
+  background-color: var(--color-green-700);
+  cursor: pointer;
+}
+
+@media (min-width: 40em) {
+  .card {
+    /* Box model */
+    display: grid;
+    gap: 1.25em;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card__image-container {
+    /* Box model */
+    margin-inline-end: 1em;
+  }
+
+  .card__image {
+    /* Box model */
+    max-width: calc(100% + (1.15em * 2));
+
+    /* Visual */
+    border-start-end-radius: 0;
+    border-end-start-radius: 0.625em;
+  }
+
+  .card__content {
+    /* Box model */
+    padding-block: 2.5em;
+    padding-inline: 1.5em;
+  }
+
+  .card__cta-button {
+    /* Box model */
+    padding-block: 0.75em;
+  }
+}
